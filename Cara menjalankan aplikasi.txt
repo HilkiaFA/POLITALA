@@ -1,0 +1,5 @@
+ 1. Buka Visual studio code
+ 2. Pilih folder yang ingin dijalankan
+ 3. klik kanan pada nama folder atau code HTML
+ 4. Lalu pilih live server(Pastikan sudah mendownload Extension Live Server)
+ 5. Dan aplikasi sudah bisa digunakan
