@@ -99,10 +99,18 @@ fetch('./json/schedule_data.json')
         // Event listener untuk pencarian berdasarkan tombol cari
         tombolCari.addEventListener('click', function() {
             const kataKunci = inputCari.value.trim(); // Mengambil input pencarian dan menghilangkan spasi
-            if (kataKunci === '' || /[^a-zA-Z\s]/.test(kataKunci)) { // Validasi input hanya huruf
+            if (kataKunci === '') { // Cek jika input kosong
+                swal({
+                    title: "Input Search Kosong!",
+                    text: "Silakan masukkan kata kunci untuk pencarian.",
+                    icon: "warning",
+                    button: "OK"
+                });
+                return;
+            } else if (/[^a-zA-Z\s]/.test(kataKunci)) { // Validasi input hanya huruf
                 swal({
                     title: "Input Tidak Valid!",
-                    text: "Hanya diperbolehkan huruf",
+                    text: "Hanya diperbolehkan huruf.",
                     icon: "warning",
                     button: "OK"
                 });
@@ -111,6 +119,7 @@ fetch('./json/schedule_data.json')
             }
             cariPelajaran(kataKunci); // Panggil fungsi pencarian pelajaran
         });
+        
 
         // Fungsi untuk mencari mata pelajaran berdasarkan keyword
         function cariPelajaran(kataKunci) {
@@ -166,9 +175,3 @@ fetch('./json/schedule_data.json')
         }
     })
     .catch(error => console.error('terjadi eror pada json:', error)); // Menangani kesalahan saat memuat file JSON
-
-    document.getElementById('burger-menu').addEventListener('click', function() {
-        const navMenu = document.getElementById('nav-menu');
-        navMenu.classList.toggle('active'); // Tambahkan atau hapus kelas aktif
-    });
-    

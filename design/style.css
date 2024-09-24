@@ -161,6 +161,7 @@ border-radius: 4px;
     .calendar {
     display: grid;
     grid-template-columns:none;
+    justify-items: center;
     grid-gap: 20px;
 }
 .burger-menu {
@@ -218,4 +219,13 @@ border-radius: 4px;
    width: 100%;
     margin-top: 10px;
 }
+.day{
+    width: 96%;
+}
+}
+
+@media only screen and (max-width: 429px) {
+    .day{
+        width: 90%;
+    }
 }
