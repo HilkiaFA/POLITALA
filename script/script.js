@@ -126,12 +126,6 @@ fetch('./json/schedule_data.json')
             const jadwal = document.getElementsByClassName('day');
             let ditemukan = false;
 
-            // Menghapus hasil pencarian sebelumnya jika ada
-            const barisTidakAdaHasil = document.getElementById('tidak-ada-hasil');
-            if (barisTidakAdaHasil) {
-                barisTidakAdaHasil.remove();
-            }
-
             // Mengubah keyword menjadi lowercase untuk pencarian
             const kataKunciLower = kataKunci.toLowerCase();
 
@@ -160,18 +154,16 @@ fetch('./json/schedule_data.json')
 
             // Jika tidak ada hasil ditemukan, tampilkan pesan "Tidak ada hasil"
             if (!ditemukan) {
-                const tidakAdaHasilDiv = document.createElement('div');
-                tidakAdaHasilDiv.id = 'tidak-ada-hasil';
-                tidakAdaHasilDiv.classList.add('tidak-ada-hasil');
-
-                const teksTidakAdaHasil = document.createElement('p');
-                teksTidakAdaHasil.textContent = 'Tidak ada hasil ditemukan';
-
-                tidakAdaHasilDiv.appendChild(teksTidakAdaHasil);
-
-                // Menambahkan div ke dalam jadwal
-                isiJadwal.appendChild(tidakAdaHasilDiv);
-            }
+                swal({
+                    title: "Tidak Ada Hasil",
+                    text: "Pelajaran tersebut tidak tersedia",
+                    icon: "error",
+                    button: "OK"
+                }).then(() => {
+                    inputCari.value = ''; // Mengosongkan input pencarian
+                    tampilkanJadwal(kelasPilihan.value); // Mengembalikan data jadwal sesuai kelas yang dipilih
+                });
+            }  
         }
     })
     .catch(error => console.error('terjadi eror pada json:', error)); // Menangani kesalahan saat memuat file JSON

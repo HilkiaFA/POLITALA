@@ -42,13 +42,6 @@ header nav a {
     cursor: pointer;
 }
 
-.burger-menu span {
-    height: 4px;
-    width: 30px;
-    background-color: black;
-    margin: 4px 0;
-}
-
 #nav-menu {
     display: flex; /* Tampilkan menu secara horizontal di desktop */
 }
@@ -164,24 +157,18 @@ border-radius: 4px;
     justify-items: center;
     grid-gap: 20px;
 }
-.burger-menu {
-    display: flex; /* Tampilkan burger menu di mobile */
-    position: relative;
-    left: 1px;
-    width: 50px;
-}
 
 #nav-menu {
-    display: none; /* Sembunyikan menu navigasi di mobile */
-    flex-direction: column; /* Ubah arah menjadi vertikal */
+    display: none; 
+    flex-direction: column; 
     position: absolute;
-    top: 60px; /* Sesuaikan posisi sesuai kebutuhan */
+    top: 60px; 
     right: 0;
-    background-color: #f4f5f8; /* Latar belakang menu */
+    background-color: #f4f5f8; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1;
     height: 80px;
-    width: 100%; /* Lebar 100% */
+    width: 100%;
 }
 
 #nav-menu a{
